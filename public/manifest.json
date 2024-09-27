@@ -1,0 +1,28 @@
+{
+    "name": "Portafolio Angel",
+    "short_name": "ARCT",
+    "description": "Portafolio Web Angel",
+    "icons": [
+      {
+        "src": "icons/icono1.png",
+        "sizes": "192x192",
+        "type": "image/png"
+      },
+      {
+        "src": "icons/icono2.png",
+        "sizes": "512x512",
+        "type": "image/png"
+      },
+      {
+        "src": "icons/icono3.png",
+        "sizes": "144x144",
+        "type": "image/png"
+      }
+    ],
+    "start_url": "/",
+    "background_color": "#ffffff",
+    "display": "standalone",
+    "theme_color": "#000000",
+    "orientation": "portrait"
+  }
+  
