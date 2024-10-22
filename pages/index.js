@@ -6,7 +6,7 @@ import {
 } from "react-icons/ai";
 import { BsFillMoonStarsFill } from "react-icons/bs";
 import { useState, useEffect } from "react";
-import deved from "../public/FT.jpg";
+import deved from "../public/IMG.jpg";
 //fotos carrusel
 import HTML5 from "../public/images/HTML5.png";
 import CSS3 from "../public/images/CSS3.png";
@@ -37,7 +37,8 @@ import Image from "next/image";
 
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/swiper-bundle.css'; 
-import { Autoplay, FreeMode, EffectCoverflow, Navigation, Pagination } from 'swiper/modules'; 
+import { Autoplay, FreeMode, EffectCoverflow, Navigation, Pagination } from 'swiper/modules';
+import { Toaster, toast } from 'react-hot-toast';
 
 export default function Home() {
 
@@ -59,8 +60,33 @@ export default function Home() {
     localStorage.setItem("darkMode", JSON.stringify(!darkMode)); // Guardar la preferencia en localStorage
   };
 
+  const [isToastShown, setIsToastShown] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (!isToastShown) {
+        toast.success('¡Bienvenido a mi portafolio!');
+        setIsToastShown(true);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, [isToastShown]);
+
   return (
     <div className={darkMode ? "dark" : ""}>
+      <Toaster
+        position="bottom-left"
+        toastOptions={{
+          success: {
+            duration: 3000,
+          },
+        }}
+      />
       <Head>
         {/* eslint-disable-next-line react/no-unescaped-entities */}
         <title>Home | Ronaldo's Portafolio</title>
